@@ -57,23 +57,26 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 .home-content {
   position: relative;
   min-height: calc(100svh - var(--header-height));
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
 }
 
 .home-copy {
-  min-height: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 10.2vh 24px 4vh;
+  justify-content: center;
+  gap: clamp(24px, 4vh, 56px);
+  padding: 24px;
+  transform: translateY(-8vh);
 }
 
 .home h1 {
   margin: 0;
   text-align: center;
+  white-space: nowrap;
   font-size: clamp(48px, 5vw, 72px);
   font-weight: 700;
   line-height: 0.98;
@@ -81,11 +84,14 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 }
 
 .intro {
-  width: min(92vw, 620px);
+  width: min(92vw, 680px);
   text-align: center;
-  font-size: 24px;
+  font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.12;
   letter-spacing: -0.02em;
+  text-wrap: pretty;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .intro p {
@@ -93,7 +99,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 }
 
 .email {
-  font-size: 18px;
+  font-size: clamp(17px, 1.3vw, 18px);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -102,13 +108,14 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 }
 
 .logo {
-  position: relative;
+  position: absolute;
   z-index: 1;
+  left: 50%;
+  bottom: 5.5vh;
+  transform: translateX(-50%);
   width: min(28vw, 390px);
   height: auto;
-  margin: 0 auto 5.5vh;
   display: block;
-  flex: 0 0 auto;
 }
 
 /* IMPRINT */
@@ -133,50 +140,59 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   }
 
   .site-name {
-    display: none;
+    display: block;
+    flex: 0 0 auto;
   }
 
   .nav {
-    width: 100%;
+    width: auto;
+    margin-left: auto;
     justify-content: flex-end;
-    gap: 28px;
+    gap: 20px;
+    white-space: nowrap;
   }
 
   .home-content {
     min-height: calc(100svh - var(--header-height));
-    grid-template-rows: minmax(0, 1fr) auto;
   }
 
   .home-copy {
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 11.5vh 32px 5vh 64px;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 6vh, 64px);
+    padding: 32px;
+    transform: none;
   }
 
   .home h1 {
     width: 100%;
     text-align: left;
-    font-size: clamp(45px, 9.6vw, 76px);
+    white-space: normal;
+    font-size: clamp(42px, 9.6vw, 72px);
     line-height: 0.98;
     letter-spacing: -0.055em;
   }
 
   .intro {
-    width: 100%;
+    width: min(100%, 470px);
+    max-width: 470px;
     text-align: left;
-    font-size: clamp(28px, 5.3vw, 40px);
+    font-size: clamp(23px, 5.3vw, 36px);
     line-height: 1.08;
     letter-spacing: -0.03em;
+    text-wrap: pretty;
   }
 
+
   .email {
-    font-size: clamp(19px, 4.2vw, 30px);
+    align-self: flex-start;
+    font-size: clamp(18px, 4.2vw, 28px);
   }
 
   .logo {
     width: 58vw;
     max-width: 470px;
-    margin-bottom: 6.5vh;
+    bottom: 6.5vh;
   }
 
   .imprint-content {
@@ -198,27 +214,28 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   .site-header {
     padding: 0 16px;
+    font-size: 13px;
   }
 
   .nav {
-    gap: 20px;
-    font-size: 14px;
-  }
-
-  .home h1 {
-    font-size: clamp(39px, 10.6vw, 52px);
+    gap: 12px;
   }
 
   .home-copy {
     padding-left: 32px;
-    padding-right: 32px;
+    padding-right: 24px;
+  }
+
+  .home h1 {
+    font-size: clamp(38px, 10.4vw, 52px);
   }
 
   .intro {
-    font-size: clamp(24px, 6.1vw, 30px);
+    width: min(100%, 440px);
+    font-size: clamp(22px, 6vw, 30px);
   }
 
   .email {
@@ -230,3 +247,18 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
     padding-left: 32px;
   }
 }
+
+@media (max-height: 700px) and (min-width: 701px) {
+  .home-copy {
+    gap: clamp(20px, 4vh, 42px);
+  }
+
+  .home h1 {
+    font-size: clamp(42px, 4.5vw, 60px);
+  }
+
+  .intro {
+    font-size: clamp(18px, 1.55vw, 22px);
+  }
+}
+
