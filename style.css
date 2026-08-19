@@ -69,7 +69,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   align-items: center;
   justify-content: center;
   gap: clamp(24px, 4vh, 56px);
-  padding: 24px;
+  padding: 24px 24px max(24px, calc(3vh + min(28vw, 390px) * 0.45));
   transform: translateY(-8vh);
 }
 
@@ -94,9 +94,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   word-break: normal;
 }
 
-.intro p {
-  margin: 0;
-}
+.intro p { margin: 0; }
 
 .email {
   font-size: clamp(17px, 1.3vw, 18px);
@@ -111,7 +109,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: 5.5vh;
+  bottom: 3vh;
   transform: translateX(-50%);
   width: min(28vw, 390px);
   height: auto;
@@ -160,7 +158,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
     align-items: center;
     justify-content: center;
     gap: clamp(28px, 6vh, 64px);
-    padding: 32px;
+    padding: 32px 32px max(32px, calc(6.5vh + 29vw));
     transform: none;
   }
 
@@ -192,7 +190,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   .logo {
     width: 58vw;
     max-width: 470px;
-    bottom: 6.5vh;
+    bottom: 3vh;
   }
 
   .imprint-content {
@@ -251,6 +249,8 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 @media (max-height: 700px) and (min-width: 701px) {
   .home-copy {
     gap: clamp(20px, 4vh, 42px);
+    transform: none;
+    padding-bottom: max(24px, calc(3vh + min(28vw, 390px) * 0.45));
   }
 
   .home h1 {
