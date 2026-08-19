@@ -57,26 +57,22 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 .home-content {
   position: relative;
   min-height: calc(100svh - var(--header-height));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   overflow: hidden;
 }
 
 .home-copy {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  gap: clamp(24px, 4vh, 56px);
-  padding: 24px 24px max(24px, calc(3vh + min(28vw, 390px) * 0.45));
-  transform: translateY(-8vh);
+  padding: clamp(48px, 8vh, 120px) 24px clamp(24px, 4vh, 56px);
 }
 
 .home h1 {
   margin: 0;
   text-align: center;
-  white-space: nowrap;
   font-size: clamp(48px, 5vw, 72px);
   font-weight: 700;
   line-height: 0.98;
@@ -84,7 +80,9 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 }
 
 .intro {
-  width: min(92vw, 680px);
+  align-self: center;
+  justify-self: center;
+  width: min(92vw, 760px);
   text-align: center;
   font-size: clamp(20px, 1.7vw, 24px);
   line-height: 1.12;
@@ -94,9 +92,14 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
   word-break: normal;
 }
 
-.intro p { margin: 0; }
+.intro p {
+  margin: 0;
+}
 
 .email {
+  align-self: center;
+  justify-self: center;
+  margin-top: clamp(24px, 4vh, 56px);
   font-size: clamp(17px, 1.3vw, 18px);
   font-weight: 700;
   text-decoration: underline;
@@ -106,14 +109,13 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 }
 
 .logo {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 50%;
-  bottom: 3vh;
-  transform: translateX(-50%);
   width: min(28vw, 390px);
   height: auto;
+  margin: 0 auto 5.5vh;
   display: block;
+  flex: 0 0 auto;
 }
 
 /* IMPRINT */
@@ -152,26 +154,28 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 
   .home-content {
     min-height: calc(100svh - var(--header-height));
+    grid-template-rows: auto minmax(0, 1fr) auto;
   }
 
   .home-copy {
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: center;
-    gap: clamp(28px, 6vh, 64px);
-    padding: 32px 32px max(32px, calc(6.5vh + 29vw));
-    transform: none;
+    padding: clamp(40px, 9vh, 84px) 32px clamp(28px, 5vh, 52px) 64px;
   }
 
   .home h1 {
     width: 100%;
     text-align: left;
-    white-space: normal;
     font-size: clamp(42px, 9.6vw, 72px);
     line-height: 0.98;
     letter-spacing: -0.055em;
   }
 
   .intro {
+    align-self: center;
+    justify-self: start;
     width: min(100%, 470px);
     max-width: 470px;
     text-align: left;
@@ -181,16 +185,17 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
     text-wrap: pretty;
   }
 
-
   .email {
-    align-self: flex-start;
+    align-self: center;
+    justify-self: start;
+    margin-top: clamp(24px, 5vh, 56px);
     font-size: clamp(18px, 4.2vw, 28px);
   }
 
   .logo {
     width: 58vw;
     max-width: 470px;
-    bottom: 3vh;
+    margin-bottom: 6.5vh;
   }
 
   .imprint-content {
@@ -248,9 +253,8 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 
 @media (max-height: 700px) and (min-width: 701px) {
   .home-copy {
-    gap: clamp(20px, 4vh, 42px);
-    transform: none;
-    padding-bottom: max(24px, calc(3vh + min(28vw, 390px) * 0.45));
+    padding-top: 32px;
+    padding-bottom: 24px;
   }
 
   .home h1 {
@@ -259,6 +263,10 @@ a:hover, a:focus-visible { text-decoration: underline; text-decoration-thickness
 
   .intro {
     font-size: clamp(18px, 1.55vw, 22px);
+  }
+
+  .email {
+    margin-top: 20px;
   }
 }
 

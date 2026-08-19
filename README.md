@@ -17,7 +17,7 @@ This is the RIPE Films static website.
 - Responsive desktop/mobile layouts
 - Logo has a dedicated bottom row so it cannot overlap the page text
 - The headline, intro and email form an adaptive vertically centered group with responsive breathing room
-- Intro wrapping uses responsive width plus CSS `text-wrap: pretty` to avoid awkward short lines
+- Desktop uses a three-zone adaptive composition closer to the original template; the intro gets a wider reading width on large screens
 - Site name remains visible in the mobile header and links back to the landing page
 - Email: `look@ripefilms.com` with a clickable `mailto:` link
 
